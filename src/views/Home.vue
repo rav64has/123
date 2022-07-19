@@ -1,18 +1,64 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>Home</h1>
+    <div class="row">
+      <div class="col-md-4 col-lg4" v-for="(data,index) in products" :key="index">
+        <img :src="data.image" class="img-fluid">
+         <h3>{{data.productTitle}}</h3>
+      </div>
+    </div>
   </div>
 </template>
+<script>
+export default {
+  name: 'home',
+  data () {
+    return {
+      title:'Home',
+      products:[
+      {
+        productTitle:"ABCN",
+        image       : require('../assets/images/product1.png'),
+        productId:1
+      },
+      {
+        productTitle:"KARMA",
+        image       : require('../assets/images/product2.png'),
+        productId:2
+      },
+      {
+        productTitle:"Tino",
+        image       : require('../assets/images/product3.png'),
+        productId:3
+      },
+      {
+        productTitle:"EFG",
+        image       : require('../assets/images/product4.png'),
+        productId:4
+      },
+      {
+        productTitle:"MLI",
+        image       : require('../assets/images/product5.png'),
+        productId:5
+      },
+      {
+        productTitle:"Banans",
+        image       : require('../assets/images/product6.png'),
+        productId:6
+      }
+      ]
+    }
+  }
+}
+    
+  
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.home {
+	text-align: center;
+}
+</style>
+
